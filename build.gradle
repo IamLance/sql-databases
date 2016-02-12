@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+war {
+    archiveName 'sqlApp.war'
+}
+
+
+repositories {
+    mavenCentral()
+	   maven {
+        url "http://repo.spring.io/list/plugins-release/"
+    }
+
+}
+ 
+ 
+dependencies {
+    compile 'com.googlecode.json-simple:json-simple:1.1','javax.servlet:servlet-api:3.0-alpha-1','cn.guoyukun.jdbc:db2jcc:1.4.2','org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016'
+    
+}
+
+
