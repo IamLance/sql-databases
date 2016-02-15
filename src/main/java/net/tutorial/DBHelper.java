@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 import org.json.simple.parser.ParseException;
 
 /*
@@ -69,7 +68,7 @@ public class DBHelper {
                 JSONObject creds = (JSONObject) service.get("credentials");
                 databaseHost = (String) creds.get("host");
                 databaseName = (String) creds.get("db");
-                port =  (long) creds.get("port");
+                port = (long) creds.get("port");
                 user = (String) creds.get("username");
                 password = (String) creds.get("password");
                 url = (String) creds.get("jdbcurl");
@@ -103,7 +102,6 @@ public class DBHelper {
                 dataSource.setPassword(password);
                 dataSource.setDriverType(4);
                 writer.println();
-                //con.setAutoCommit(true);
                 this.con = dataSource.getConnection();
                 if (con == null) {
                     System.out.println("con is null");
@@ -142,12 +140,11 @@ public class DBHelper {
 
     }
 
-    public void insertInto(Account bean) {
+    public String insertInto(Account bean) {
         if (con != null) {
             try {
                 sqlStatement = "INSERT INTO " + tableName
                         + "(FNAME,LNAME) VALUES (?,?)";
-
                 PreparedStatement preparedStatement = con.prepareStatement(sqlStatement);
                 preparedStatement.setString(1, bean.getFname());
                 preparedStatement.setString(2, bean.getLname());
@@ -157,6 +154,27 @@ public class DBHelper {
             } catch (SQLException e) {
                 writer.println("Error " + e);
             }
+            return selectSingle(bean.getFname());
+        }
+        return null;
+    }
+
+    public String selectSingle(String Fname) {
+        try {
+            sqlStatement = "SELECT * FROM" + tableName + " where Fname = " + Fname;
+            ArrayList<Account> beans = new ArrayList<>();
+            ResultSet rs = stmt.executeQuery(sqlStatement);
+            writer.println("Executing: " + sqlStatement);
+            while (rs.next()) {
+                Account a = new Account();
+                a.setFname(rs.getString("fname"));
+                a.setLname(rs.getString("lname"));
+                beans.add(a);
+            }
+            return beans.get(0).getLname();
+        } catch (SQLException e) {
+            writer.println("Error " + e);
+            return null;
         }
     }
 

@@ -6,13 +6,15 @@ import java.net.InetAddress;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 import org.json.simple.parser.ParseException;
-import javax.servlet.annotation.WebServlet;
 
+// @author PvR, IBM 2013
+// @version 0.3
 @WebServlet("/SQLDBSample")
 public class SQLDBSample extends HttpServlet {
 
