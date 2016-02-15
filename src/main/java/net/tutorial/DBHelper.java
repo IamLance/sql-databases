@@ -129,7 +129,7 @@ public class DBHelper {
             try {
                 stmt = con.createStatement();
                 // Create the CREATE TABLE SQL statement and execute it
-                sqlStatement = "CREATE TABLE IF NOT EXISTS " + tableName
+                sqlStatement = "CREATE TABLE " + tableName
                         + "(FNAME VARCHAR(20), LNAME VARCHAR(20))";
                 writer.println("Executing: " + sqlStatement);
                 stmt.executeUpdate(sqlStatement);
