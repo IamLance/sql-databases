@@ -153,9 +153,9 @@ public class DBHelper {
             } catch (SQLException e) {
                 writer.println("Error " + e);
             }
-			System.out.println(bean.getLname());
-           // return selectSingle(bean.getFname());
-		   return "Del Valle";
+
+            return selectSingle(bean.getFname());
+		   //return "Del Valle";
         }
         return null;
     }
