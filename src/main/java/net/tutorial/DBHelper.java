@@ -150,13 +150,12 @@ public class DBHelper {
                 preparedStatement.setString(2, bean.getLname());
                 writer.println("Executing: " + sqlStatement);
                 preparedStatement.executeUpdate();
-
             } catch (SQLException e) {
                 writer.println("Error " + e);
             }
 			System.out.println(bean.getLname());
            // return selectSingle(bean.getFname());
-		   return bean.getLname();
+		   return "Del Valle";
         }
         return null;
     }
