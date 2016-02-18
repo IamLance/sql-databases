@@ -32,7 +32,7 @@ public class DBTest {
         Account bean = new Account();
         bean.setFname("Lance");
         bean.setLname("Del Valle");
-		System.out.println(h.insertInto(Bean));
+		System.out.println(h.insertInto(bean));
         assertEquals("inserting Lance should return Del Valle", "Del Valle", h.insertInto(bean));
     }
 }
