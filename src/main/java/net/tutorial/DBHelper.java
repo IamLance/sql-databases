@@ -154,7 +154,8 @@ public class DBHelper {
             } catch (SQLException e) {
                 writer.println("Error " + e);
             }
-            return selectSingle(bean.getFname());
+			System.out.println(bean.getLname());
+            return selectSingle(bean.getLname());
         }
         return null;
     }
@@ -171,6 +172,7 @@ public class DBHelper {
                 a.setLname(rs.getString("lname"));
                 beans.add(a);
             }
+			
             return beans.get(0).getLname();
         } catch (SQLException e) {
             writer.println("Error " + e);
