@@ -27,7 +27,7 @@ public class DBTest {
         h = new DBHelper(new PrintWriter("logger.txt"));
     }
 
-    @Test(timeout = 1000)
+
     public void insertShouldReturnInsert() {
         Account bean = new Account();
         bean.setFname("Lance");
