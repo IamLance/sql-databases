@@ -161,7 +161,7 @@ public class DBHelper {
 
     public String selectSingle(String Fname) {
         try {
-            sqlStatement = "SELECT * FROM" + tableName + " where Fname = " + Fname;
+            sqlStatement = "SELECT * FROM" + tableName + " where FNAME=" + Fname;
             ArrayList<Account> beans = new ArrayList<>();
             ResultSet rs = stmt.executeQuery(sqlStatement);
             writer.println("Executing: " + sqlStatement);
