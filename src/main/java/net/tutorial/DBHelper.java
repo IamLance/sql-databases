@@ -155,7 +155,8 @@ public class DBHelper {
                 writer.println("Error " + e);
             }
 			System.out.println(bean.getLname());
-            return selectSingle(bean.getLname());
+           // return selectSingle(bean.getFname());
+		   return bean.getLname();
         }
         return null;
     }
